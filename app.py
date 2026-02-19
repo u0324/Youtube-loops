@@ -20,8 +20,8 @@ def index():
         else:
             player_content = "無効なURLです"
 
-    head = "<html><head><title>LoopTube</title></head><body style='text-align:center;padding:20px;'>"
-    title = "<h1>LoopTube Player</h1>"
+    head = "<html><head><title>Yt-Loop</title></head><body style='text-align:center;padding:20px;'>"
+    title = "<h1>YT Player</h1>"
     form = "<form method='POST'><input type='text' name='url' style='width:70%' placeholder='URLを貼る'><button type='submit'>PLAY</button></form>"
     footer = "</body></html>"
     
