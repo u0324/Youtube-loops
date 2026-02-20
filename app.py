@@ -45,11 +45,11 @@ def index():
         .btn-delete {{ background:#444; color:#ccc; margin-left:10px; }}
         .btn-delete:hover {{ background:#555; }}
         label {{ cursor: pointer; font-size: 14px; color: #bbb; }}
-    </style >
+    </style>
     
-    <script src="https://www.youtube.com/iframe_api"></script >
+    <script src="https://www.youtube.com/iframe_api"></script>
     
-    <script >
+    <script>
         let player;
         const videoId = "{v_id}";
         const loopEnabled = {loop_js_flag};
@@ -96,20 +96,20 @@ def index():
                 }}
             }}
         }});
-    </script >
-    </head ><body >
+    </script>
+    </head ><body>
     """
     
     title = "<h1>YT Player</h1>"
     
     form = f"""
     <div class='controls'>
-        <form method='POST' style='margin:0;' >
-            <input type='text' name='url' value='{current_url}' placeholder='動画URLを入力' autocomplete='off' ><br >
-            <label><input type='checkbox' name='loop' {is_loop_checked}  > ループ再生</label >
+        <form method='POST' style='margin:0;'>
+            <input type='text' name='url' value='{current_url}' placeholder='動画URLを入力' autocomplete='off'><br>
+            <label><input type='checkbox' name='loop' {is_loop_checked}>ループ再生</label>
             <div style='margin-top:15px;' >
-                <button type='submit' class='btn-play' >PLAY </button >
-                <button type='submit' name='delete' class='btn-delete'  >DELETE </button >
+                <button type='submit' class='btn-play' >PLAY</button>
+                <button type='submit' name='delete' class='btn-delete'>DELETE</button>
             </div>
         </form>
     </div>
