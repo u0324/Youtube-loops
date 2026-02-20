@@ -65,7 +65,6 @@ def index():
                     'autoplay': 1,
                     'controls': 1,
                     'rel': 0,
-                    'vq': 'hd1080',  
                     'enablejsapi': 1
                 }},
                 events: {{
