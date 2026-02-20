@@ -18,7 +18,7 @@ def index():
 
     if request.method == 'POST':
         if 'delete' in request.form:
-            player_placeholder = "<div style='color:#d9534f;'>消去しました</div >"
+            player_placeholder = "<div style='color:#d9534f;'>消去しました</div>"
             current_url = ""
         else:
             current_url = request.form.get('url','')
