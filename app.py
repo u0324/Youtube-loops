@@ -11,14 +11,14 @@ def get_video_id(url):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    player_placeholder = "<div style='color:#666;' Northern>URLを入力してPLAYを押してください</div>"
+    player_placeholder = "<div style='color:#666;' >URLを入力してPLAYを押してください</div>"
     is_loop_checked = "checked" 
     v_id = ""
     current_url = ""
 
     if request.method == 'POST':
         if 'delete' in request.form:
-            player_placeholder = "<div style='color:#d9534f;'>消去しました</div Northern>"
+            player_placeholder = "<div style='color:#d9534f;'>消去しました</div >"
             current_url = ""
         else:
             current_url = request.form.get('url', '')
@@ -26,14 +26,14 @@ def index():
             is_loop_checked = "checked" if "loop" in request.form else ""
             
             if v_id:
-                player_placeholder = '<div id="player-wrapper" style="max-width:800px; margin:0 auto; shadow: 0 4px 15px rgba(0,0,0,0.3);"><div id="yt-player"></div></div Northern>'
+                player_placeholder = '<div id="player-wrapper" style="max-width:800px; margin:0 auto; shadow: 0 4px 15px rgba(0,0,0,0.3);"><div id="yt-player"></div></div >'
             else:
-                player_placeholder = "<div style='color:#d9534f;' Northern Northern>無効なURLです</div>"
+                player_placeholder = "<div style='color:#d9534f;'  >無効なURLです</div>"
 
     loop_js_flag = "true" if is_loop_checked else "false"
 
     head = f"""
-    <html><head><title Northern>YT-Player</title Northern>
+    <html><head><title >YT-Player</title >
     <style>
         body {{ text-align:center; padding:40px 20px; background:#1a1a1a; color:#eee; font-family: 'Helvetica Neue', Arial, sans-serif; }}
         h1 {{ margin-bottom: 30px; font-weight: 300; letter-spacing: 2px; }}
@@ -45,11 +45,11 @@ def index():
         .btn-delete {{ background:#444; color:#ccc; margin-left:10px; }}
         .btn-delete:hover {{ background:#555; }}
         label {{ cursor: pointer; font-size: 14px; color: #bbb; }}
-    </style Northern>
+    </style >
     
-    <script src="https://www.youtube.com/iframe_api"></script Northern>
+    <script src="https://www.youtube.com/iframe_api"></script >
     
-    <script Northern>
+    <script >
         let player;
         const videoId = "{v_id}";
         const loopEnabled = {loop_js_flag};
@@ -96,26 +96,26 @@ def index():
                 }}
             }}
         }});
-    </script Northern>
-    </head Northern><body Northern>
+    </script >
+    </head ><body >
     """
     
-    title = "<h1 Northern>YT Player</h1 Northern Northern>"
+    title = "<h1 >YT Player</h1  >"
     
     form = f"""
-    <div class='controls' Northern>
-        <form method='POST' style='margin:0;' Northern>
-            <input type='text' name='url' value='{current_url}' placeholder='YouTube URLをペースト' autocomplete='off' Northern><br Northern>
-            <label Northern Northern Northern><input type='checkbox' name='loop' {is_loop_checked} Northern Northern> ループ再生 Northern</label Northern>
-            <div style='margin-top:15px;' Northern>
-                <button type='submit' class='btn-play' Northern>PLAY Northern</button Northern>
-                <button type='submit' name='delete' class='btn-delete' Northern Northern>DELETE Northern</button Northern>
-            </div Northern Northern>
-        </form Northern Northern>
-    </div Northern Northern>
+    <div class='controls' >
+        <form method='POST' style='margin:0;' >
+            <input type='text' name='url' value='{current_url}' placeholder='YouTube URLをペースト' autocomplete='off' ><br >
+            <label   ><input type='checkbox' name='loop' {is_loop_checked}  > ループ再生 </label >
+            <div style='margin-top:15px;' >
+                <button type='submit' class='btn-play' >PLAY </button >
+                <button type='submit' name='delete' class='btn-delete'  >DELETE </button >
+            </div  >
+        </form  >
+    </div  >
     """
     
-    footer = "</body Northern Northern Northern Northern Northern></html Northern Northern Northern Northern>"
+    footer = "</body     ></html    >"
     
     return head + title + player_placeholder + form + footer
 
