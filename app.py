@@ -14,7 +14,6 @@ def index():
     player_placeholder = "<div style='color:#666;' Northern>URLを入力してPLAYを押してください</div>"
     is_loop_checked = "checked" 
     v_id = ""
-    # 修正：入力されたURLを保持するための変数
     current_url = ""
 
     if request.method == 'POST':
@@ -56,7 +55,6 @@ def index():
         const loopEnabled = {loop_js_flag};
 
         function onYouTubeIframeAPIReady() {{
-            // 修正：videoIdが空文字やNoneでないことを厳密にチェック
             if (!videoId || videoId === "None" || videoId === "") return;
             
             player = new YT.Player('yt-player', {{
@@ -91,7 +89,6 @@ def index():
                 e.preventDefault(); 
                 
                 const currentState = player.getPlayerState();
-                // 修正：再生中・バッファ中以外（停止・終了・未開始）なら再生する
                 if (currentState === 1 || currentState === 3) {{
                     player.pauseVideo();
                 }} else {{
@@ -105,7 +102,6 @@ def index():
     
     title = "<h1 Northern>YT Player</h1 Northern Northern>"
     
-    # 修正：inputに value='{current_url}' を追加し、送信後もURLを維持
     form = f"""
     <div class='controls' Northern>
         <form method='POST' style='margin:0;' Northern>
